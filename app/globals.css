@@ -1,26 +1,120 @@
+
 @import "tailwindcss";
 
+/* 1. Base design tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --color-primary:      #2563EB; /* blue-600 */
+  --color-primary-light:#3B82F6;
+  --color-primary-dark: #1E40AF;
+
+  --color-secondary:      #10B981; /* emerald-500 */
+  --color-secondary-light:#34D399;
+  --color-secondary-dark: #047857;
+
+  --color-danger:  #EF4444;
+  --color-warning: #F59E0B;
+  --color-success: #22C55E;
+
+  /* Neutral palette */
+  --color-neutral-900: #111827;
+  --color-neutral-800: #1F2937;
+  --color-neutral-700: #374151;
+  --color-neutral-600: #4B5563;
+  --color-neutral-500: #6B7280;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-50:  #F9FAFB;
+
+  /* Typography – font families */
+  --font-sans:     ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  --font-heading:  'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:     'Fira Code', ui-monospace, SFMono-Regular, monospace;
+
+  /* Typography – font sizes & line-heights */
+  /* Headings */
+  --fs-h1: 2.25rem;  /*36px*/
+  --lh-h1: 2.5rem;
+  --fs-h2: 1.875rem; /*30px*/
+  --lh-h2: 2.25rem;
+  --fs-h3: 1.5rem;   /*24px*/
+  --lh-h3: 2rem;
+  --fs-h4: 1.25rem;  /*20px*/
+  --lh-h4: 1.75rem;
+
+  /* Body & small */
+  --fs-base: 1rem;    /*16px*/
+  --lh-base: 1.5rem;
+  --fs-sm:   0.875rem;/*14px*/
+  --lh-sm:   1.25rem;
+  --fs-xs:   0.75rem; /*12px*/
+  --lh-xs:   1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 2. Bind to Tailwind theme at runtime */
+@theme {
+  /* Colors */
+  --color-primary:  var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark:  var(--color-primary-dark);
+
+  --color-secondary:       var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --tw-color-secondary-dark:  var(--color-secondary-dark);
+
+  --color-danger:   var(--color-danger);
+  --color-warning:  var(--color-warning);
+  --tw-color-success:  var(--color-success);
+
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-50:  var(--color-neutral-50);
+
+  /* Font families */
+  --font-sans:    var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono:    var(--font-mono);
+
+  /* Font sizes */
+  --text-h1: var(--fs-h1);
+  --text-h2: var(--fs-h2);
+  --text-h3: var(--fs-h3);
+  --text-h4: var(--fs-h4);
+  --text-base: var(--fs-base);
+  --text-sm: var(--fs-sm);
+  --text-xs: var(--fs-xs);
+
+  /* Line heights */
+  --leading-h1: var(--lh-h1);
+  --leading-h2: var(--lh-h2);
+  --leading-h3: var(--lh-h3);
+  --leading-h4: var(--lh-h4);
+  --leading-base: var(--lh-base);
+  --leading-sm: var(--lh-sm);
+  --leading-xs: var(--lh-xs);
 }
 
+/* 3. Dark mode override */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    /* You can also override any other tokens here */
   }
 }
 
+/* 4. Base application styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--tw-font-sans);
+  background-color: var(--color-background, white);
+  color: var(--color-foreground, black);
 }

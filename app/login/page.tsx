@@ -1,3 +1,4 @@
+"use client"
 import { Heading, Paragraph } from "@/app/_components/Typography";
 import { STATIC_IMAGES } from "@/data/staticimage";
 import Image from "next/image";
@@ -5,6 +6,10 @@ import React from "react";
 import { Button } from "@/components/Button";
 
 const SignUpPage = () => {
+
+  const handlegooglelogin = () => {
+    window.open('http://localhost:3001/api/v1/auth/google/login', '_blank');
+  }
   return (
     <div className="flex flex-col  justify-center items-center mt-10 ">
       <div className=" max-w-[36.563rem] flex flex-col items-center justify-center gap-10">
@@ -27,7 +32,7 @@ const SignUpPage = () => {
           <Paragraph>
             Power your accountability and boost productivity with Focus.{" "}
           </Paragraph>
-          <Button variant="primary" withArrow>
+          <Button onClick={handlegooglelogin} variant="primary" withArrow>
             Sign Up
           </Button>
         </div>

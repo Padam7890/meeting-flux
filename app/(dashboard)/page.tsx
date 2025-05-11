@@ -1,9 +1,17 @@
-import React from 'react'
+"use client"
+import http from "@/lib/http";
+import React, { useEffect } from "react";
 
 const DashBoard = () => {
-  return (
-    <div>DashBoard</div>
-  )
-}
+  useEffect(() => {
+    getUserdata();
+  }, []);
 
-export default DashBoard
+  const getUserdata = async () => {
+    const response = await http.get("/auth/user");
+    console.log(response);
+  };
+  return <div>DashBoard</div>;
+};
+
+export default DashBoard;
